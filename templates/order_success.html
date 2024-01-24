@@ -1,0 +1,13 @@
+<!-- templates/order_success.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Order Success{% endblock %}
+
+{% block content %}
+    <h1>Your Order is Successfully Placed!</h1>
+    <p>
+        Thank you for shopping with us. Your order is successfully placed.
+        You'll receive further details on the mobile number you used for placing the order.
+    </p>
+    <a href="{{ url_for('product_catalog') }}">Back to Product Catalog</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- templates/product_catalog.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Product Catalog{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the All Size Store!</h1>
+    <p>
+        At the All Size Store, we believe fashion shouldn't be restricted to sizes. And so, we've sizes available from XS to 6XL.<br>
+        Go ahead an express yourself, whatever size you're!
+    </p>
+    <div class="product-grid">
+        {% for product in products %}
+            <div class="product-item">
+                <img src="{{ product.image }}" alt="{{ product.name }}">
+                <h3>{{ product.name }}</h3>
+                <p>Price: INR {{ product.price }}</p>
+                <p>Size: {{ product.size }}</p>
+                <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="post">
+                    <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                </form>                
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
